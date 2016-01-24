@@ -6,6 +6,7 @@ $(document).ready(function() {
     var id = $('#id');
     var nav = $('#nav');
     var nav_ul = $('#nav ul');
+    var rooms = $('#rooms');
     var chatter_name, roomID;
 
     var addMessage = function(message) {
@@ -60,6 +61,7 @@ $(document).ready(function() {
         socket.emit('nickname', name);
        id.replaceWith("<h1>"+name+" Is On! </h1>"); 
        input.show().emojiPicker();
+       rooms.show();
     });          
 //Room selecting stuff
 $('li').on('click',function(){

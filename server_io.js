@@ -31,7 +31,8 @@ io.on('connection', function (socket) {
 	    });
 //Room Selector
     socket.on('chosenRoom', function(roomID){
-        console.log('room selected: ',roomID);
+        console.log('room selected: ',roomID," by user: ",socket.id);
+//        if(roomID){socket.leave(roomID);}
         socket.join(roomID);
 //sending message to a particular room        
         socket.on('message', function(message) {
