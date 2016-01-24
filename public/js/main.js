@@ -20,7 +20,7 @@ $(document).ready(function() {
             $('#nav ul').append('<li>' + names[i] + '</li>');}
     };
       var update = function(names) {
-        $('ul').remove();
+        $('#nav ul').remove();
         var u_list=$("#nav").append('<ul></ul>').find('ul');
 //        console.log(names);
         for(i=0; i<names.length; i++){
