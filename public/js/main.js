@@ -7,7 +7,6 @@ $(document).ready(function() {
     var nav = $('#nav');
     var nav_ul = $('#nav ul');
     var chatter_name, roomID;
-//    var room = $('#myselect');
 
     var addMessage = function(message) {
         messages.append('<div>' + message + '</div>');
@@ -18,7 +17,7 @@ $(document).ready(function() {
     };
     var firstLoad = function(names) {
         for(i=0; i<names.length; i++){
-            $('ul').append('<li>' + names[i] + '</li>');}
+            $('#nav ul').append('<li>' + names[i] + '</li>');}
     };
       var update = function(names) {
         $('ul').remove();

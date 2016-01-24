@@ -32,11 +32,17 @@ io.on('connection', function (socket) {
 //Room Selector
     socket.on('chosenRoom', function(roomID){
         console.log('room selected: ',roomID);
+        socket.join(roomID);
+//sending message to a particular room        
+        socket.on('message', function(message) {
+        socket.broadcast.to(roomID).emit('message', message);
+        }); 
     });    
-// Messages broadcast
-    socket.on('message', function(message) {
-        socket.broadcast.emit('message', message);
-	    });    
+    
+// Messages broadcast (this one goes to everyone)
+//    socket.on('message', function(message) {
+//        socket.broadcast.emit('message', message);
+//	    });    
 // Handling disconnect
 	socket.on('disconnect', function(){
 	console.log('disconnected '+ socket.id);
