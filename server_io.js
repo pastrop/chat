@@ -32,12 +32,15 @@ io.on('connection', function (socket) {
 //Room Selector
     socket.on('chosenRoom', function(roomID){
         console.log('room selected: ',roomID," by user: ",socket.id);
-//        if(roomID){socket.leave(roomID);}
+        socket.emit('location', roomID); 
+        socket.broadcast.emit('location', roomID);  
         socket.join(roomID);
 //sending message to a particular room        
         socket.on('message', function(message) {
         socket.broadcast.to(roomID).emit('message', message);
-        }); 
+        });
+//broadcast everyone's location
+               
     });    
     
 // Messages broadcast (this one goes to everyone)
